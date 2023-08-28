@@ -1,4 +1,4 @@
-import refractor from 'refractor/core'
+import { refractor } from 'refractor/lib/core'
 import bash from 'refractor/lang/bash'
 import css from 'refractor/lang/css'
 import clike from 'refractor/lang/clike'

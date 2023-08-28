@@ -9,7 +9,6 @@ module.exports = {
 	// appDirectory: "app",
 	// assetsBuildDirectory: "public/build",
 	// publicPath: "/build/",
-	serverModuleFormat: 'cjs',
 	future: {
 		v2_dev: true,
 		v2_errorBoundary: true,
@@ -18,4 +17,7 @@ module.exports = {
 		v2_normalizeFormMethod: true,
 		v2_routeConvention: true,
 	},
+	serverModuleFormat: 'cjs',
+	serverDependenciesToBundle: [/.*/],
+	watchPaths: ['../packages/oh-hi-markdown/'],
 }

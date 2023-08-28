@@ -1,4 +1,4 @@
-import refractor from 'refractor/core'
+import refractor from 'refractor/lib/core'
 import flattenDeep from 'lodash/flattenDeep'
 import { Plugin, PluginKey, Transaction } from 'prosemirror-state'
 import { Node } from 'prosemirror-model'

@@ -554,6 +554,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 			// @ts-ignore
 			state: this.createState(this.props.value),
 			editable: () => !this.props.readOnly,
+			// @ts-ignore
 			nodeViews: this.nodeViews,
 			handleDOMEvents: this.props.handleDOMEvents,
 			dispatchTransaction: function (transaction) {
@@ -781,7 +782,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 				dir={dir}
 				column
 			>
-				{/* 
+				{/*
                 // @ts-ignore */}
 				<ThemeProvider
 					// @ts-ignore
