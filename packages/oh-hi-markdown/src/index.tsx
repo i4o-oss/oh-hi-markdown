@@ -14,7 +14,6 @@ import { selectColumn, selectRow, selectTable } from 'prosemirror-utils'
 import { ThemeProvider } from 'styled-components'
 import { dark as darkTheme, light as lightTheme } from './styles/theme'
 import baseDictionary from './dictionary'
-import Flex from './components/Flex'
 import { SearchResult } from './components/LinkEditor'
 import { EmbedDescriptor, ToastType } from './types'
 import SelectionToolbar from './components/SelectionToolbar'
@@ -26,9 +25,6 @@ import Extension from './lib/Extension'
 import ExtensionManager from './lib/ExtensionManager'
 import ComponentView from './lib/ComponentView'
 import headingToSlug from './lib/headingToSlug'
-
-// styles
-import { StyledEditor } from './styles/editor'
 
 // nodes
 import ReactNode from './nodes/ReactNode'
@@ -760,27 +756,16 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 	)
 
 	render() {
-		const {
-			dir,
-			readOnly,
-			readOnlyWriteCheckboxes,
-			style,
-			tooltip,
-			className,
-			onKeyDown,
-		} = this.props
+		const { dir, readOnly, readOnlyWriteCheckboxes, tooltip, onKeyDown } =
+			this.props
 		const { isRTL } = this.state
 		const dictionary = this.dictionary(this.props.dictionary)
 
 		return (
-			<Flex
+			<main
 				onKeyDown={onKeyDown}
-				style={style}
-				className={className}
-				align='flex-start'
-				justify='center'
+				className='ohm-flex ohm-flex-col ohm-items-start ohm-justify-center'
 				dir={dir}
-				column
 			>
 				{/*
                 // @ts-ignore */}
@@ -788,16 +773,17 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 					// @ts-ignore
 					theme={this.theme()}
 				>
-					<React.Fragment>
-						<StyledEditor
-							dir={dir}
-							rtl={isRTL}
-							readOnly={readOnly}
-							readOnlyWriteCheckboxes={readOnlyWriteCheckboxes}
+					<>
+						<div
+							className='editor-wrapper ohm-prose'
+							// dir={dir}
+							// rtl={isRTL}
+							// readOnly={readOnly}
+							// readOnlyWriteCheckboxes={readOnlyWriteCheckboxes}
 							ref={(ref) => (this.element = ref)}
 						/>
 						{!readOnly && this.view && (
-							<React.Fragment>
+							<>
 								<SelectionToolbar
 									view={this.view}
 									dictionary={dictionary}
@@ -852,11 +838,11 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 									onShowToast={this.props.onShowToast}
 									embeds={this.props.embeds}
 								/>
-							</React.Fragment>
+							</>
 						)}
-					</React.Fragment>
+					</>
 				</ThemeProvider>
-			</Flex>
+			</main>
 		)
 	}
 }

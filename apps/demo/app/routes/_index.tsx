@@ -17,11 +17,17 @@ export default function Index() {
 	}
 
 	return (
-		<div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
-			<h1>Welcome to Remix</h1>
-			{/* 
-            // @ts-ignore */}
-			<Editor value={content.current} onChange={changeHandler} />
+		<div className='flex w-full justify-center'>
+			<div className='flex w-full max-w-3xl flex-col gap-y-16 py-16'>
+				<h1 className='text-xl'>Welcome to Remix</h1>
+				{/*
+                // @ts-ignore */}
+				<Editor
+					placeholder='Start Writing...'
+					value={content.current}
+					onChange={changeHandler}
+				/>
+			</div>
 		</div>
 	)
 }

@@ -72,6 +72,7 @@
 		"@storybook/addon-links": "^7.3.2",
 		"@storybook/cli": "^7.3.2",
 		"@storybook/react": "^7.3.2",
+		"@tailwindcss/typography": "^0.5.9",
 		"@types/fuzzy-search": "^2.1.2",
 		"@types/lodash": "^4.14.197",
 		"@types/markdown-it": "^13.0.1",
