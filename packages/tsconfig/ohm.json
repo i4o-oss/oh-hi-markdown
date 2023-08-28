@@ -3,9 +3,9 @@
 	"display": "Oh Hi Markdown",
 	"extends": "./base.json",
 	"compilerOptions": {
-		"strict": true,
+		"strict": false,
 		"strictNullChecks": true,
-		"noImplicitAny": true,
+		"noImplicitAny": false,
 		"allowJs": true,
 		"sourceMap": true,
 		"jsx": "react-jsx",

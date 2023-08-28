@@ -5,5 +5,7 @@ apps/demo/build/
 apps/demo/public/build/
 apps/demo/.cache/
 
+packages/oh-hi-markdown/dist/
+
 public/site.webmanifest
 pnpm-lock.yaml

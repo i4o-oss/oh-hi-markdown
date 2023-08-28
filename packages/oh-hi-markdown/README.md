@@ -27,7 +27,6 @@ Note that `react`, `react-dom`, and `styled-components` are _required_ peer depe
 
 ```javascript
 import Editor from 'rich-markdown-editor'
-
 ;<Editor defaultValue='Hello world!' />
 ```
 
@@ -230,7 +229,6 @@ This callback allows overriding of link handling. It's often the case that you w
 
 ```javascript
 import { history } from 'react-router'
-
 ;<Editor
 	onClickLink={(href, event) => {
 		if (isInternalLink(href)) {
@@ -260,7 +258,6 @@ This callback allows handling of clicking on hashtags in the document text. If n
 
 ```javascript
 import { history } from 'react-router'
-
 ;<Editor
 	onClickHashtag={(tag) => {
 		history.push(`/hashtags/${tag}`)
