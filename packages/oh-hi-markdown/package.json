@@ -3,16 +3,21 @@
 	"description": "A rich text editor with Markdown shortcuts",
 	"version": "0.1.0",
 	"license": "BSD-3-Clause",
+	"files": [
+		"dist"
+	],
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
 	"style": "./styles/rescribe.css",
 	"exports": {
 		".": "./dist/index.js",
-		"./rescribe.css": "./dist/rescribe.css"
+		"./main.css": "./dist/main.css"
 	},
 	"scripts": {
-		"dev": "tsup --watch",
+		"dev": "concurrently \"pnpm run dev:css\" \"pnpm dev:lib\"",
+		"dev:css": "tailwindcss -w -i ./styles/main.css -o ./dist/main.css",
+		"dev:lib": "tsup --watch",
 		"test": "jest",
 		"lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet",
 		"start": "start-storybook -p 6006",
@@ -87,8 +92,10 @@
 		"@types/styled-components": "^5.1.7",
 		"@typescript-eslint/eslint-plugin": "^4.15.2",
 		"@typescript-eslint/parser": "^4.15.2",
+		"autoprefixer": "^10.4.15",
 		"babel-jest": "^26.6.3",
 		"babel-loader": "^8.2.2",
+		"concurrently": "^8.2.1",
 		"eslint": "^7.20.0",
 		"eslint-config-prettier": "^6.15.0",
 		"eslint-config-react-app": "^6.0.0",
@@ -97,11 +104,13 @@
 		"eslint-plugin-prettier": "^3.1.4",
 		"eslint-plugin-react": "^7.21.5",
 		"eslint-plugin-react-hooks": "^4.0.8",
+		"postcss": "^8.4.28",
 		"prettier": "^1.19.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"source-map-loader": "^0.2.4",
 		"styled-components": "^5.2.1",
+		"tailwindcss": "^3.3.3",
 		"ts-loader": "^6.2.1",
 		"tsc-watch": "^4.2.9",
 		"tsup": "^7.2.0",
