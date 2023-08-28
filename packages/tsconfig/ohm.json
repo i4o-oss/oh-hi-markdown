@@ -4,14 +4,18 @@
 	"extends": "./base.json",
 	"compilerOptions": {
 		"strict": true,
+		"strictNullChecks": true,
+		"noImplicitAny": true,
+		"allowJs": true,
+		"sourceMap": true,
 		"jsx": "react-jsx",
-		"lib": ["DOM", "ES2019"],
+		"lib": ["DOM", "ESNext"],
 		"module": "ESNext",
-		"target": "es6",
+		"target": "ESNext",
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"paths": {
-			"~/*": ["../editor/src/"]
+			"~/*": ["../oh-hi-markdown/src/"]
 		}
 	}
 }
