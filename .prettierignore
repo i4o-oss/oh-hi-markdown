@@ -1,0 +1,9 @@
+node_modules/
+
+apps/demo/api/
+apps/demo/build/
+apps/demo/public/build/
+apps/demo/.cache/
+
+public/site.webmanifest
+pnpm-lock.yaml
