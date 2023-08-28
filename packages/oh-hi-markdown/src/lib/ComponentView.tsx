@@ -58,7 +58,7 @@ export default class ComponentView {
 		})
 
 		ReactDOM.render(
-            // @ts-ignore
+			// @ts-ignore
 			<ThemeProvider theme={theme}>{children}</ThemeProvider>,
 			this.dom
 		)

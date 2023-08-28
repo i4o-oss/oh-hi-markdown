@@ -253,7 +253,7 @@ class LinkEditor extends React.Component<Props, State> {
 		const { state, dispatch } = this.props.view
 
 		if (mark) {
-            // @ts-ignore
+			// @ts-ignore
 			dispatch(state.tr.removeMark(from, to, mark))
 		}
 
@@ -276,7 +276,7 @@ class LinkEditor extends React.Component<Props, State> {
 	moveSelectionToEnd = () => {
 		const { to, view } = this.props
 		const { state, dispatch } = view
-            // @ts-ignore
+		// @ts-ignore
 		dispatch(setTextSelection(to)(state.tr))
 		view.focus()
 	}
@@ -319,14 +319,14 @@ class LinkEditor extends React.Component<Props, State> {
 				/>
 
 				<ToolbarButton onClick={this.handleOpenLink} disabled={!value}>
-                {/* 
+					{/* 
                 // @ts-ignore */}
 					<Tooltip tooltip={dictionary.openLink} placement='top'>
 						<OpenIcon color={theme.toolbarItem} />
 					</Tooltip>
 				</ToolbarButton>
 				<ToolbarButton onClick={this.handleRemoveLink}>
-                {/* 
+					{/* 
                 // @ts-ignore */}
 					<Tooltip tooltip={dictionary.removeLink} placement='top'>
 						{this.initialValue ? (

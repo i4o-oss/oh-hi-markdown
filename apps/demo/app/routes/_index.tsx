@@ -1,4 +1,6 @@
 import type { V2_MetaFunction } from '@remix-run/node'
+import Editor from '@i4o/ohm'
+import { useRef } from 'react'
 
 export const meta: V2_MetaFunction = () => {
 	return [
@@ -8,38 +10,18 @@ export const meta: V2_MetaFunction = () => {
 }
 
 export default function Index() {
+	const content = useRef<string>('')
+
+	const changeHandler = (value: string) => {
+		content.current = value
+	}
+
 	return (
 		<div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
 			<h1>Welcome to Remix</h1>
-			<ul>
-				<li>
-					<a
-						target='_blank'
-						href='https://remix.run/tutorials/blog'
-						rel='noreferrer'
-					>
-						15m Quickstart Blog Tutorial
-					</a>
-				</li>
-				<li>
-					<a
-						target='_blank'
-						href='https://remix.run/tutorials/jokes'
-						rel='noreferrer'
-					>
-						Deep Dive Jokes App Tutorial
-					</a>
-				</li>
-				<li>
-					<a
-						target='_blank'
-						href='https://remix.run/docs'
-						rel='noreferrer'
-					>
-						Remix Docs
-					</a>
-				</li>
-			</ul>
+			{/* 
+            // @ts-ignore */}
+			<Editor value={content.current} onChange={changeHandler} />
 		</div>
 	)
 }
