@@ -34,8 +34,6 @@ export const base = {
 	image: 'Image',
 	imageUploadError: 'Sorry, an error occurred uploading the image',
 	imageCaptionPlaceholder: 'Write a caption',
-	info: 'Info',
-	infoNotice: 'Info notice',
 	link: 'Link',
 	linkCopied: 'Link copied to clipboard',
 	mark: 'Highlight',
@@ -44,7 +42,6 @@ export const base = {
 	noResults: 'No results',
 	openLink: 'Open link',
 	orderedList: 'Ordered list',
-	pageBreak: 'Page break',
 	pasteLink: 'Paste a link…',
 	pasteLinkWithTitle: (title: string): string => `Paste a ${title} link…`,
 	placeholder: 'Placeholder',
@@ -55,10 +52,6 @@ export const base = {
 	strong: 'Bold',
 	subheading: 'Subheading',
 	table: 'Table',
-	tip: 'Tip',
-	tipNotice: 'Tip notice',
-	warning: 'Warning',
-	warningNotice: 'Warning notice',
 }
 
 export default base

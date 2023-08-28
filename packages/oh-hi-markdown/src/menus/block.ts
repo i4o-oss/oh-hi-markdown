@@ -7,13 +7,9 @@ import {
 	Heading3Icon,
 	HorizontalRuleIcon,
 	OrderedListIcon,
-	PageBreakIcon,
 	TableIcon,
 	TodoListIcon,
 	ImageIcon,
-	StarredIcon,
-	WarningIcon,
-	InfoIcon,
 	LinkIcon,
 } from 'outline-icons'
 import { MenuItem } from '../types'
@@ -103,13 +99,6 @@ export default function blockMenuItems(
 			keywords: 'horizontal rule break line',
 		},
 		{
-			name: 'hr',
-			title: dictionary.pageBreak,
-			icon: PageBreakIcon,
-			keywords: 'page print break line',
-			attrs: { markup: '***' },
-		},
-		{
 			name: 'image',
 			title: dictionary.image,
 			icon: ImageIcon,
@@ -121,30 +110,6 @@ export default function blockMenuItems(
 			icon: LinkIcon,
 			shortcut: `${mod} k`,
 			keywords: 'link url uri href',
-		},
-		{
-			name: 'separator',
-		},
-		{
-			name: 'container_notice',
-			title: dictionary.infoNotice,
-			icon: InfoIcon,
-			keywords: 'container_notice card information',
-			attrs: { style: 'info' },
-		},
-		{
-			name: 'container_notice',
-			title: dictionary.warningNotice,
-			icon: WarningIcon,
-			keywords: 'container_notice card error',
-			attrs: { style: 'warning' },
-		},
-		{
-			name: 'container_notice',
-			title: dictionary.tipNotice,
-			icon: StarredIcon,
-			keywords: 'container_notice card suggestion',
-			attrs: { style: 'tip' },
 		},
 	]
 }
