@@ -98,7 +98,7 @@
 .ohm h4:not(.placeholder):before,
 .ohm h5:not(.placeholder):before,
 .ohm h6:not(.placeholder):before {
-	@apply ohm-inline-block ohm-font-mono ohm-text-foreground-subtle ohm-text-base -ohm-ml-6 ohm-w-6 ohm-opacity-0 ohm-leading-[0];
+	@apply ohm-inline-block ohm-font-mono ohm-text-foreground-muted ohm-text-base -ohm-ml-8 ohm-w-6 ohm-opacity-0 ohm-leading-[0];
 	transition: opacity 150ms ease-in-out;
 }
 
@@ -185,4 +185,64 @@
 .ohm .placeholder:nth-child(1):before,
 .ohm .placeholder:nth-child(2):before {
 	@apply ohm-opacity-100;
+}
+
+/* .ohm ul, */
+/* .ohm ol { */
+/*    margin: ${(props) => (props.rtl ? '0 -26px 0 0.1em' : '0 0.1em 0 -26px')}; */
+/*    padding: ${(props) => (props.rtl ? '0 44px 0 0' : '0 0 0 44px')}; */
+/*  } */
+
+.ohm ol ol {
+	@apply ohm-list-lower-alpha;
+}
+
+.ohm ol ol ol {
+	@apply ohm-list-lower-roman;
+}
+
+.ohm ul.checkbox_list {
+	@apply ohm-list-none ohm-p-0;
+}
+
+.ohm ul li,
+.ohm ol li {
+	@apply ohm-relative ohm-whitespace-normal;
+}
+
+.ohm ul li p,
+.ohm ol li p {
+	@apply ohm-whitespace-pre-wrap;
+}
+
+.ohm ul li > div,
+.ohm ol li > div {
+	@apply ohm-w-full;
+}
+
+.ohm ul.checkbox_list li {
+	@apply ohm-flex ohm-pl-2;
+}
+
+.ohm ul.checkbox_list li.checked > div > p {
+	@apply ohm-text-foreground-subtle ohm-line-through;
+}
+
+.ohm ul > li.counter-2::before,
+.ohm ol li.counter-2::before {
+	@apply -ohm-ml-12;
+}
+
+.ohm ul.checkbox_list li::before {
+	@apply ohm-left-0;
+}
+
+.ohm ul.checkbox_list li input {
+	@apply ohm-cursor-pointer ohm-w-4 ohm-h-4 ohm-relative ohm-top-px ohm-inline-block ohm-opacity-80 ohm-mr-2;
+	transition: transform 100ms ease-in-out 0s;
+	background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3 0C1.34315 0 0 1.34315 0 3V11C0 12.6569 1.34315 14 3 14H11C12.6569 14 14 12.6569 14 11V3C14 1.34315 12.6569 0 11 0H3ZM3 2C2.44772 2 2 2.44772 2 3V11C2 11.5523 2.44772 12 3 12H11C11.5523 12 12 11.5523 12 11V3C12 2.44772 11.5523 2 11 2H3Z' fill='%23E6E6E6' /%3E%3C/svg%3E%0A");
+}
+
+.ohm li p:first-child {
+	@apply ohm-m-0 ohm-break-words;
 }

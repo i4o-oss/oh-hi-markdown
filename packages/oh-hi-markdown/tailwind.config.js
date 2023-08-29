@@ -27,6 +27,10 @@ module.exports = {
 				sans: 'var(--font-sans)',
 				serif: 'var(--font-serif)',
 			},
+			listStyleType: {
+				'lower-alpha': 'lower-alpha',
+				'lower-roman': 'lower-roman',
+			},
 		},
 	},
 }

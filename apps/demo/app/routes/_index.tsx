@@ -10,55 +10,65 @@ export const meta: V2_MetaFunction = () => {
 }
 
 const DUMMY_CONTENT = `
-# Siquem vagus poenam adieci graia pennis
+# Et magno velut actusque hunc vernum solumque
 
-## Tantum quaeque poteras carmina in motaque undique
+## Arcus dolores fidem
 
-Lorem markdownum utrumque Pyracmon olivae; amat crimen sperneret erat, tenet.
-Ipse membris, corporis, et auraeque quae momentaque cernit *intercipit Marte
-Sybarin* si auditum. Positoque saepe cum, vos magnum femina nefas odiumque
-conantur praeferri minimus ventis summis venturi, qua opibus. Euryte sex eodem
-solent, armo aurum avus tempora demens: cannis est: et et huius eo raucis.
+Lorem markdownum tumulumque munere et ubi Hectoris fata pictis astris pomaque,
+iuvenali aliquis curarum, o. Nota nec concita dubitare angustum et in tristia
+index superi gregesque conpressit eo nurus. Taurorum onerosa *Notum tabo* videor
+tamen siquis fata mihi Haemonio mercede, vox?
 
-Lapidis quod **ab senes adsis**; tam vite iubet undis cruor, nulla, rebus,
-signisque. Fallere in elapsae pugnax pro ambas levat est lignoque vanis
-lacertis. Et plura multum confessaque caelo temeraria incoquit iamque
-pollentibus corpus emittitque solita. Secreta nemorosi, est et enixa, satia.
+## Avsis mihi natura
 
-Pectora nebulas navita; ut trahunt amplexu, vires; te contra guttae! Laevaque te
-genus mutua hunc *metus vidit* exclamat matrem; Titania veni est eratque se.
-Harena dentibus moratus placuit furtim me, est caput pectora, Miletida quod
-contendere linguae. Pylio Halcyoneus iniquae dixit. Reserata eduxit moenibus
-quinque debuerant silvae blanditias habuere aegra, ut movit parte gentibus deae
-artus nervis si ferrum.
+Digitis ignis speret vocatum errant veniente plena sui Ceae qui ante. Ityosque
+civilia tecta. Fluvios coniugis ex, est Thermodontiaca candida.
 
-## Tunc hostem
+1. Et clara in
+2. Nec virgineosque terras pelagi se futura Stheneleius
+3. Licet temporis utraque
+4. Inrupit illic
+5. Sed agebat vim sub ibitis dare revolvor
 
-Creatam Minyeias summos, da pecori promptu auras nec parum successu convicia
-virginitate ut equorum signorum mitia; formosae. Eunti his crudelis postibus
-loquendo Bromiumque violas ad mollito ait dextera gratia rapiunt precibus
-novissima, negabit fateri iustissima! Nuncupat fata, cum vulnere hydros canentis
-paternam ea at, haberent.
+## Non extendi mea
 
-Equi Achivi utinam tractu nec sublime sublime. Traxere manu relictum, quot
-[pudibundaque](#menephron-caesareo-tamen) solidis huius metuaris et mihi.
+Invitam Telamone viderem adiutrixque aevi additur est motu annua stetit cernis
+carinas. **Quem** sentit ergo resoluta nunc constantia ante trahebat disceditis
+memorant furit supplex, sentit non!
 
-Consorte nobis mihi femina certamina at capitum *vestri*, nostri annos
-adsumptumque mea patulo quaque utroque. Cum **revulsit pignora**. Parentis pro,
-iste nec, sed adflabitur procul et **corpore longus**. Aura inerant: et vale
-mixta Sidone.
+- Super interdixit ieiunia tutus claudit Ophionides aut
+- Per excipit
+- Spectabat erat
+- Nomina confiteor tristique Ampyciden nitidis hominem tantos
+- Tempore simul subiere
 
-Viro Aetnae, oculos, committitur tamen caeruleas nobis, et. Ac est pererrant et
-**victus**, tenuisse sic debita adversa et Andron solidum tura viae. Ipsumque
-**rapidus**. Casus *quam* nuncupat invenerit albet, fidem aures femina populi
-ignotosque fulmina. Ventorum cinguntur lapsum.
+## Erat erat nescio herba Pelopeia depositum restet
+
+Cur e *dea Ausoniae*, a, meis ipse, et medullas volucres? Dum fugae Tyrrhenus
+inpia, ipso cum procul, iubeatve illam? **Et auctor**; pennis, *signa*, defuit
+novi hominem fugit, at gerens victricia resupinus vultum, ait dicenda. Occidat
+ita mihi repetisse, cervice virque edidit te nato factis vetat beatam illo color
+quod adimit nostra indestrictus herbis. Pallidiora catulo.
+
+## Remittit patrium faciem armandique surgis ortus torum
+
+Fortibus Haemonio adorat meosque, non corpus lumina: Phoce visa. Est fecit damno
+natarum quoque fulmina religione occupat foliis litus herbis dentibus.
+
+1. Fuit in vacuum canamus operitur
+2. Require utinam Meleagron studio
+3. Ebur fore successor illo captivo erant per
+
+Nullisque *attonitas* sanet. Invenerit ruit lenius, Latona cernis penetravit me
+quasi Iove [totidem](#quis-quia). Enipeu caesariem Hiberis hic sub, tunc nos
+vacuae, leni iustamque flamine.
 `
 
 export default function Index() {
 	const content = useRef<string>(DUMMY_CONTENT)
 
-	const changeHandler = (value: string) => {
-		content.current = value
+	const changeHandler = (value: () => string) => {
+		content.current = value()
 	}
 
 	return (
