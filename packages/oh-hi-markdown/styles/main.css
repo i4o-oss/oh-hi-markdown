@@ -7,6 +7,7 @@
 
 	--foreground: 0 0% 12.5%;
 	--foreground-subtle: 0 0% 39.3%;
+	--foreground-muted: 211 21% 75%;
 
 	--font-sans: 'Inter', sans-serif;
 	--font-serif: 'Merriweather', serif;
@@ -21,6 +22,7 @@
 
 	--foreground: 0 0% 93.5%;
 	--foreground-subtle: 0 0% 69.5%;
+	--foreground-muted: 212 20% 40%;
 
 	--code-bg: 0 0% 10.5%;
 	--code-border: 0 0% 24.7%;
@@ -62,7 +64,7 @@
 }
 
 .ohm .block-menu-trigger {
-	@apply ohm-opacity-0 ohm-w-6 ohm-h-6 ohm-pointer-events-none ohm-text-foreground-subtle ohm-bg-transparent ohm-absolute ohm-outline-none ohm-border-none ohm-p-0 ohm-mt-px -ohm-ml-6 ohm-inline;
+	@apply ohm-opacity-0 ohm-w-6 ohm-h-6 ohm-pointer-events-none ohm-text-foreground-subtle ohm-bg-transparent ohm-absolute ohm-outline-none ohm-border-none ohm-p-0 ohm-mt-[3px] -ohm-ml-8 ohm-inline;
 
 	transition:
 		color 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
@@ -166,4 +168,21 @@
 .ohm h5:hover .heading-anchor:hover,
 .ohm h6:hover .heading-anchor:hover {
 	@apply !ohm-opacity-100;
+}
+
+.ohm .placeholder {
+	@apply ohm-my-2;
+}
+
+.ohm .placeholder:before {
+	@apply ohm-block ohm-opacity-0 ohm-pointer-events-none ohm-h-0 ohm-text-foreground-muted;
+	transition: opacity 150ms ease-in-out;
+	content: attr(data-empty-text);
+}
+
+/** Show the placeholder if focused or the first visible item nth(2) accounts for block insert trigger */
+.ohm .ProseMirror-focused .placeholder:before,
+.ohm .placeholder:nth-child(1):before,
+.ohm .placeholder:nth-child(2):before {
+	@apply ohm-opacity-100;
 }

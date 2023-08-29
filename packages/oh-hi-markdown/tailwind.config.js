@@ -15,7 +15,9 @@ module.exports = {
 				foreground: {
 					DEFAULT: 'hsl(var(--foreground) / <alpha-value>)',
 					subtle: 'hsl(var(--foreground-subtle) / <alpha-value>)',
+					muted: 'hsl(var(--foreground-muted) / <alpha-value>)',
 				},
+
 				primary: {
 					DEFAULT: 'hsl(var(--primary) / <alpha-value>)',
 				},
