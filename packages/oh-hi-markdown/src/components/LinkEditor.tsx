@@ -12,7 +12,6 @@ import {
 import styled, { withTheme } from 'styled-components'
 import isUrl from '../lib/isUrl'
 import theme from '../styles/theme'
-import Flex from './Flex'
 import Input from './Input'
 import ToolbarButton from './ToolbarButton'
 import LinkSearchResult from './LinkSearchResult'
@@ -304,7 +303,10 @@ class LinkEditor extends React.Component<Props, State> {
 			!!suggestedLinkTitle && (showCreateLink || results.length > 0)
 
 		return (
-			<Wrapper>
+			<div
+				className='ohm-flex ohm-items-center -ohm-mx-2 ohm-min-w-[336px]'
+				style={{ pointerEvents: 'all' }}
+			>
 				<Input
 					value={value}
 					placeholder={
@@ -377,17 +379,10 @@ class LinkEditor extends React.Component<Props, State> {
 						)}
 					</SearchResults>
 				)}
-			</Wrapper>
+			</div>
 		)
 	}
 }
-
-const Wrapper = styled(Flex)`
-	margin-left: -8px;
-	margin-right: -8px;
-	min-width: 336px;
-	pointer-events: all;
-`
 
 const SearchResults = styled.ol`
 	background: ${(props) => props.theme.toolbarBackground};

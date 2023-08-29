@@ -33,6 +33,7 @@ class BlockMenu extends React.Component<BlockMenuProps> {
 				renderMenuItem={(item, _index, options) => {
 					return (
 						<BlockMenuItem
+							// @ts-ignore
 							onClick={options.onClick}
 							selected={options.selected}
 							icon={item.icon}

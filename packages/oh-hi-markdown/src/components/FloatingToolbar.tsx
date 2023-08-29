@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Portal } from 'react-portal'
+import { Portal } from '@radix-ui/react-portal'
 import { EditorView } from 'prosemirror-view'
 import useComponentSize from '../hooks/useComponentSize'
 import useMediaQuery from '../hooks/useMediaQuery'
@@ -184,6 +184,8 @@ const Wrapper = styled.div<{
 	active?: boolean
 	offset: number
 }>`
+    display: flex;
+    align-items: 'center',
 	will-change: opacity, transform;
 	padding: 8px 16px;
 	position: absolute;
@@ -197,7 +199,7 @@ const Wrapper = styled.div<{
 		transform 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	transition-delay: 150ms;
 	line-height: 0;
-	height: 40px;
+	height: 48px;
 	box-sizing: border-box;
 	pointer-events: none;
 	white-space: nowrap;

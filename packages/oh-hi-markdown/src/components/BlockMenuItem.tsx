@@ -1,7 +1,7 @@
 import * as React from 'react'
 import scrollIntoView from 'smooth-scroll-into-view-if-needed'
-import styled, { withTheme } from 'styled-components'
 import theme from '../styles/theme'
+import { withTheme } from 'styled-components'
 
 export type Props = {
 	selected: boolean
@@ -44,14 +44,25 @@ function BlockMenuItem({
 	)
 
 	return (
-		<MenuItem
-			selected={selected}
+		<button
+			className={`ohm-flex ohm-items-center ohm-justify-start ohm-text-sm ohm-rounded-md ohm-w-full ohm-h-9 ohm-cursor-pointer ohm-border-none ohm-text-foreground ${
+				disabled ? 'ohm-opacity-50' : 'ohm-opacity-100'
+			} ${
+				selected
+					? 'ohm-text-foreground ohm-bg-primary'
+					: 'ohm-text-foreground'
+			} ohm-py-0 ohm-px-4 ohm-outline-none hover:ohm-text-foreground hover:ohm-bg-primary`}
 			onClick={disabled ? undefined : onClick}
 			ref={ref}
 		>
 			{Icon && (
 				<>
 					<Icon
+						className={`${
+							selected
+								? 'ohm-text-foreground'
+								: 'ohm-text-foreground'
+						}`}
 						color={
 							selected
 								? theme.blockToolbarIconSelected
@@ -62,52 +73,38 @@ function BlockMenuItem({
 				</>
 			)}
 			{title}
-			{shortcut && <Shortcut>{shortcut}</Shortcut>}
-		</MenuItem>
+			{shortcut && (
+				<span className='ohm-text-foreground-subtle ohm-grow ohm-text-right'>
+					{shortcut}
+				</span>
+			)}
+		</button>
 	)
 }
 
-const MenuItem = styled.button<{
-	selected: boolean
-}>`
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 1;
-	width: 100%;
-	height: 36px;
-	cursor: pointer;
-	border: none;
-	opacity: ${(props) => (props.disabled ? '.5' : '1')};
-	color: ${(props) =>
-		props.selected
-			? props.theme.blockToolbarTextSelected
-			: props.theme.blockToolbarText};
-	background: ${(props) =>
-		props.selected
-			? props.theme.blockToolbarSelectedBackground ||
-			  props.theme.blockToolbarTrigger
-			: 'none'};
-	padding: 0 16px;
-	outline: none;
-
-	&:hover,
-	&:active {
-		color: ${(props) => props.theme.blockToolbarTextSelected};
-		background: ${(props) =>
-			props.selected
-				? props.theme.blockToolbarSelectedBackground ||
-				  props.theme.blockToolbarTrigger
-				: props.theme.blockToolbarHoverBackground};
-	}
-`
-
-const Shortcut = styled.span`
-	color: ${(props) => props.theme.textSecondary};
-	flex-grow: 1;
-	text-align: right;
-`
+// const MenuItem = styled.button<{
+// 	selected: boolean
+// }>`
+// 	line-height: 1;
+// 	color: ${(props) =>
+// 		props.selected
+// 			? props.theme.blockToolbarTextSelected
+// 			: props.theme.blockToolbarText};
+// 	background: ${(props) =>
+// 		props.selected
+// 			? props.theme.blockToolbarSelectedBackground ||
+// 			  props.theme.blockToolbarTrigger
+// 			: 'none'};
+//
+// 	&:hover,
+// 	&:active {
+// 		color: ${(props) => props.theme.blockToolbarTextSelected};
+// 		background: ${(props) =>
+// 			props.selected
+// 				? props.theme.blockToolbarSelectedBackground ||
+// 				  props.theme.blockToolbarTrigger
+// 				: props.theme.blockToolbarHoverBackground};
+// 	}
+// `
 
 export default withTheme(BlockMenuItem)

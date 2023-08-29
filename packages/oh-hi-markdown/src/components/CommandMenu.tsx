@@ -1,16 +1,16 @@
 import * as React from 'react'
 import capitalize from 'lodash/capitalize'
-import { Portal } from 'react-portal'
+import { Portal } from '@radix-ui/react-portal'
 import { EditorView } from 'prosemirror-view'
 import { findDomRefAtPos, findParentNode } from 'prosemirror-utils'
 import styled from 'styled-components'
 import { EmbedDescriptor, MenuItem, ToastType } from '../types'
-import Input from './Input'
 import VisuallyHidden from './VisuallyHidden'
 import getDataTransferFiles from '../lib/getDataTransferFiles'
 import filterExcessSeparators from '../lib/filterExcessSeparators'
 import insertFiles from '../commands/insertFiles'
 import baseDictionary from '../dictionary'
+import { ScrollArea } from '@i4o/catalystui'
 
 const SSR = typeof window === 'undefined'
 
@@ -58,6 +58,7 @@ type State = {
 	selectedIndex: number
 }
 
+// @ts-ignore
 class CommandMenu<T = MenuItem> extends React.Component<Props<T>, State> {
 	menuRef = React.createRef<HTMLDivElement>()
 	inputRef = React.createRef<HTMLInputElement>()
@@ -471,109 +472,87 @@ class CommandMenu<T = MenuItem> extends React.Component<Props<T>, State> {
 					ref={this.menuRef}
 					{...positioning}
 				>
-					{insertItem ? (
-						<LinkInputWrapper>
-							<LinkInput
-								type='text'
-								placeholder={
-									insertItem.title
-										? dictionary.pasteLinkWithTitle(
-												insertItem.title
-										  )
-										: dictionary.pasteLink
-								}
-								onKeyDown={this.handleLinkInputKeydown}
-								onPaste={this.handleLinkInputPaste}
-								autoFocus
-							/>
-						</LinkInputWrapper>
-					) : (
-						<List>
-							{items.map((item, index) => {
-								if (item.name === 'separator') {
+					<ScrollArea className='ohm-w-[300px] [&>div>div>div]:!ohm-p-2 [&>div>div>div>div]:!ohm-mt-0 [&>div>div>div>div>ol]:!ohm-py-0'>
+						{insertItem ? (
+							<div className='ohm-m-2'>
+								<input
+									className='ohm-w-full ohm-h-9 ohm-bg-transparent ohm-text-foreground'
+									type='text'
+									placeholder={
+										insertItem.title
+											? dictionary.pasteLinkWithTitle(
+													insertItem.title
+											  )
+											: dictionary.pasteLink
+									}
+									onKeyDown={this.handleLinkInputKeydown}
+									onPaste={this.handleLinkInputPaste}
+									autoFocus
+								/>
+							</div>
+						) : (
+							<ol className='ohm-list-none ohm-text-left ohm-h-full ohm-py-2 ohm-px-0 ohm-m-0 ohm-space-y-px'>
+								{items.map((item, index) => {
+									if (item.name === 'separator') {
+										return (
+											<li
+												className='ohm-p-0 ohm-m-0'
+												key={index}
+											>
+												<hr />
+											</li>
+										)
+									}
+									const selected =
+										index === this.state.selectedIndex &&
+										isActive
+
+									if (!item.title) {
+										return null
+									}
+
 									return (
-										<ListItem key={index}>
-											<hr />
-										</ListItem>
+										<li
+											className='ohm-p-0 ohm-m-0'
+											key={index}
+										>
+											{this.props.renderMenuItem(
+												item as any,
+												index,
+												{
+													selected,
+													onClick: () =>
+														this.insertItem(item),
+												}
+											)}
+										</li>
 									)
-								}
-								const selected =
-									index === this.state.selectedIndex &&
-									isActive
-
-								if (!item.title) {
-									return null
-								}
-
-								return (
-									<ListItem key={index}>
-										{this.props.renderMenuItem(
-											item as any,
-											index,
-											{
-												selected,
-												onClick: () =>
-													this.insertItem(item),
-											}
-										)}
-									</ListItem>
-								)
-							})}
-							{items.length === 0 && (
-								<ListItem>
-									<Empty>{dictionary.noResults}</Empty>
-								</ListItem>
-							)}
-						</List>
-					)}
-					{uploadImage && (
-						<VisuallyHidden>
-							<input
-								type='file'
-								ref={this.inputRef}
-								onChange={this.handleImagePicked}
-								accept='image/*'
-							/>
-						</VisuallyHidden>
-					)}
+								})}
+								{items.length === 0 && (
+									<li className='ohm-p-0 ohm-m-0'>
+										<div className='ohm-flex ohm-items-center ohm-text-foreground-subtle ohm-font-semibold ohm-text-base ohm-h-9 ohm-px-4 ohm-py-0'>
+											{dictionary.noResults}
+										</div>
+									</li>
+								)}
+							</ol>
+						)}
+						{uploadImage && (
+							<VisuallyHidden>
+								<input
+									type='file'
+									ref={this.inputRef}
+									onChange={this.handleImagePicked}
+									accept='image/*'
+								/>
+							</VisuallyHidden>
+						)}
+					</ScrollArea>
 				</Wrapper>
 			</Portal>
 		)
 	}
 }
-
-const LinkInputWrapper = styled.div`
-	margin: 8px;
-`
-
-const LinkInput = styled(Input)`
-	height: 36px;
-	width: 100%;
-	color: ${(props) => props.theme.blockToolbarText};
-`
-
-const List = styled.ol`
-	list-style: none;
-	text-align: left;
-	height: 100%;
-	padding: 8px 0;
-	margin: 0;
-`
-
-const ListItem = styled.li`
-	padding: 0;
-	margin: 0;
-`
-
-const Empty = styled.div`
-	display: flex;
-	align-items: center;
-	color: ${(props) => props.theme.textSecondary};
-	font-weight: 500;
-	font-size: 14px;
-	height: 36px;
-	padding: 0 16px;
-`
 
 export const Wrapper = styled.div<{
 	active: boolean
@@ -582,14 +561,11 @@ export const Wrapper = styled.div<{
 	left?: number
 	isAbove: boolean
 }>`
-	color: ${(props) => props.theme.text};
-	font-family: ${(props) => props.theme.fontFamily};
 	position: absolute;
 	z-index: ${(props) => props.theme.zIndex + 100};
 	${(props) => props.top !== undefined && `top: ${props.top}px`};
 	${(props) => props.bottom !== undefined && `bottom: ${props.bottom}px`};
 	left: ${(props) => props.left}px;
-	background-color: ${(props) => props.theme.blockToolbarBackground};
 	border-radius: 4px;
 	box-shadow:
 		rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
@@ -602,23 +578,9 @@ export const Wrapper = styled.div<{
 		transform 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	transition-delay: 150ms;
 	line-height: 0;
-	box-sizing: border-box;
 	pointer-events: none;
 	white-space: nowrap;
-	width: 300px;
-	max-height: 224px;
 	overflow: hidden;
-	overflow-y: auto;
-
-	* {
-		box-sizing: border-box;
-	}
-
-	hr {
-		border: 0;
-		height: 0;
-		border-top: 1px solid ${(props) => props.theme.blockToolbarDivider};
-	}
 
 	${({ active, isAbove }) =>
 		active &&

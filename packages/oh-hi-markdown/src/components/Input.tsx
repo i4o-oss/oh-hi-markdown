@@ -1,19 +1,8 @@
-import styled from 'styled-components'
-
-const Input = styled.input`
-	font-size: 15px;
-	background: ${(props) => props.theme.toolbarInput};
-	color: ${(props) => props.theme.toolbarItem};
-	border-radius: 2px;
-	padding: 3px 8px;
-	border: 0;
-	margin: 0;
-	outline: none;
-	flex-grow: 1;
-
-	@media (hover: none) and (pointer: coarse) {
-		font-size: 16px;
-	}
-`
+const Input = (props: React.InputHTMLAttributes<HTMLInputElement>) => (
+	<input
+		className='ohm-text-base ohm-rounded-md ohm-py-1 ohm-px-2 ohm-border-none ohm-m-0 ohm-outline-none ohm-grow ohm-bg-transparent'
+		{...props}
+	/>
+)
 
 export default Input

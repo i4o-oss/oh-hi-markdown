@@ -27,6 +27,8 @@
 		"build-storybook": "build-storybook"
 	},
 	"dependencies": {
+		"@i4o/catalystui": "1.0.0-alpha.16",
+		"@radix-ui/react-portal": "^1.0.3",
 		"copy-to-clipboard": "^3.3.3",
 		"fuzzy-search": "^3.2.1",
 		"gemoji": "8.1.0",
@@ -50,7 +52,6 @@
 		"prosemirror-utils": "0.9.6",
 		"prosemirror-view": "1.31.7",
 		"react-medium-image-zoom": "^5.1.8",
-		"react-portal": "^4.2.2",
 		"refractor": "^4.8.1",
 		"resize-observer-polyfill": "^1.5.1",
 		"slugify": "^1.6.6",
