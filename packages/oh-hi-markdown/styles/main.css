@@ -8,20 +8,34 @@
 	--foreground: 0 0% 12.5%;
 	--foreground-subtle: 0 0% 39.3%;
 
-	--font-sans: 'Inter, sans-serif';
-	--font-serif: 'Merriweather, serif';
+	--font-sans: 'Inter', sans-serif;
+	--font-serif: 'Merriweather', serif;
 	--font-mono: 'Source Code Pro', monospace;
 
 	--code-bg: 0 0% 97.5%;
 	--code-border: 0 0% 86.8%;
 }
 
+.dark {
+	--primary: 0 0% 9.5%;
+
+	--foreground: 0 0% 93.5%;
+	--foreground-subtle: 0 0% 69.5%;
+
+	--code-bg: 0 0% 10.5%;
+	--code-border: 0 0% 24.7%;
+}
+
 .ohm {
-	@apply ohm-text-base ohm-w-full ohm-bg-transparent ohm-text-foreground ohm-font-sans;
+	@apply ohm-w-full ohm-bg-transparent;
 }
 
 .ohm .ProseMirror {
-	@apply ohm-relative ohm-outline-none ohm-break-words ohm-whitespace-break-spaces ohm-px-16 -ohm-mx-16 ohm-text-foreground;
+	@apply ohm-relative ohm-outline-none ohm-px-16 -ohm-mx-16;
+}
+
+.ohm .ProseMirror > * {
+	@apply ohm-text-foreground ohm-break-words ohm-whitespace-break-spaces ohm-font-sans;
 	-webkit-font-variant-ligatures: none;
 	font-variant-ligatures: none;
 	font-feature-settings: 'liga' 0; /* the above doesn't seem to work in Edge */
@@ -73,7 +87,7 @@
 .ohm h4,
 .ohm h5,
 .ohm h6 {
-	@apply ohm-font-semibold ohm-cursor-text ohm-my-2;
+	@apply ohm-font-semibold ohm-cursor-text;
 }
 
 .ohm h1:not(.placeholder):before,
@@ -152,8 +166,4 @@
 .ohm h5:hover .heading-anchor:hover,
 .ohm h6:hover .heading-anchor:hover {
 	@apply !ohm-opacity-100;
-}
-
-.ohm p {
-	@apply ohm-my-0;
 }
