@@ -10,6 +10,21 @@ module.exports = {
 				code: {
 					DEFAULT: 'hsl(var(--code-bg) / <alpha-value>)',
 					border: 'hsl(var(--code-border) / <alpha-value>)',
+					comment: 'var(--code-comment)',
+					punctuation: 'var(--code-punctuation)',
+					number: 'var(--code-number)',
+					property: 'var(--code-property)',
+					tag: 'var(--code-tag)',
+					string: 'var(--code-string)',
+					selector: 'var(--code-selector)',
+					attr: 'var(--code-attr)',
+					entity: 'var(--code-entity)',
+					keyword: 'var(--code-keyword)',
+					function: 'var(--code-function)',
+					statement: 'var(--code-statement)',
+					placeholder: 'var(--code-placeholder)',
+					inserted: 'var(--code-inserted)',
+					important: 'var(--code-important)',
 				},
 
 				foreground: {

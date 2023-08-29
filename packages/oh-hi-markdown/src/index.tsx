@@ -769,7 +769,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 				>
 					<>
 						<div
-							className='ohm-w-full ohm ohm-prose ohm-prose-lg ohm-max-w-none dark:ohm-prose-invert'
+							className='ohm-w-full ohm ohm-prose ohm-prose-lg ohm-max-w-none dark:ohm-prose-invert prose-pre:ohm-not-prose'
 							// dir={dir}
 							// rtl={isRTL}
 							// readOnly={readOnly}

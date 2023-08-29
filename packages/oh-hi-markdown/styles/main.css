@@ -17,6 +17,21 @@
 
 	--code-bg: 0 0% 97.5%;
 	--code-border: 0 0% 86.8%;
+	--code-comment: #6a737d;
+	--code-punctuation: #5e6687;
+	--code-number: #d73a49;
+	--code-property: #c08b30;
+	--code-tag: #3d8fd1;
+	--code-string: #032f62;
+	--code-selector: #6679cc;
+	--code-attr: #c76b29;
+	--code-entity: #22a2c9;
+	--code-keyword: #d73a49;
+	--code-function: #6f42c1;
+	--code-statement: #22a2c9;
+	--code-placeholder: #3d8fd1;
+	--code-inserted: #202746;
+	--code-important: #c94922;
 }
 
 .dark {
@@ -28,6 +43,7 @@
 
 	--code-bg: 0 0% 10.5%;
 	--code-border: 0 0% 24.7%;
+	--code-string: '#3d8fd1';
 }
 
 body {
@@ -54,7 +70,7 @@ hr {
 	@apply ohm-hidden;
 }
 
-.ohm .ProseMirror > * {
+.ohm .ProseMirror > *:not(.code-block) {
 	@apply ohm-text-foreground ohm-break-words ohm-whitespace-break-spaces ohm-font-sans;
 	-webkit-font-variant-ligatures: none;
 	font-variant-ligatures: none;
@@ -62,7 +78,7 @@ hr {
 }
 
 .ohm .block-menu-trigger {
-	@apply ohm-hidden ohm-opacity-0 ohm-w-6 ohm-h-6 ohm-pointer-events-none ohm-text-foreground-subtle ohm-bg-transparent ohm-absolute ohm-outline-none ohm-border-none ohm-p-0 ohm-mt-[3px] -ohm-ml-8 ohm-inline;
+	@apply ohm-hidden ohm-opacity-0 ohm-w-6 ohm-h-6 ohm-pointer-events-none ohm-text-foreground-subtle ohm-bg-transparent ohm-absolute ohm-outline-none ohm-border-none ohm-p-0 ohm-mt-[3px] -ohm-ml-8;
 
 	transition:
 		color 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
@@ -241,7 +257,7 @@ hr {
 }
 
 .ohm pre {
-	@apply ohm-block ohm-overflow-x-auto ohm-relative ohm-rounded-md ohm-text-base ohm-text-left ohm-whitespace-pre ohm-m-0 ohm-bg-code ohm-border ohm-border-code-border ohm-text-foreground ohm-py-3 ohm-px-4 ohm-leading-6;
+	@apply ohm-block ohm-overflow-x-auto ohm-relative ohm-rounded-md ohm-text-base ohm-text-left ohm-whitespace-pre ohm-m-0 ohm-bg-code ohm-border ohm-border-code-border ohm-py-3 ohm-px-4 ohm-leading-6;
 
 	-webkit-font-smoothing: initial;
 	direction: ltr;
@@ -270,11 +286,11 @@ hr {
 }
 
 .ohm .code-block {
-	position: relative;
+	@apply ohm-relative;
 }
 
 .ohm .code-block select {
-	@apply ohm-hidden ohm-rounded-md ohm-text-base ohm-absolute ohm-border ohm-p-[2px] ohm-z-[1] ohm-top-1;
+	@apply ohm-rounded-md ohm-text-sm ohm-absolute ohm-border ohm-p-[2px] ohm-z-[1] ohm-top-1 ohm-bg-primary ohm-text-foreground;
 	/* background: ${(props) => props.theme.blockToolbarBackground}; */
 	/* color: ${(props) => props.theme.blockToolbarItem}; */
 }
@@ -288,15 +304,111 @@ hr {
 }
 
 .ohm .code-block:hover select {
-	/* @apply ohm-inline; */
-	@apply ohm-hidden;
+	@apply ohm-inline;
+	/* @apply ohm-hidden; */
 }
 
-/* .ohm .code-block select:focus, */
-/* .ohm .code-block select:active { */
-/* 	display: inline; */
-/* } */
+.ohm .code-block select:focus,
+.ohm .code-block select:active {
+	display: inline;
+}
 
 .ohm p img.ProseMirror-separator {
 	@apply ohm-hidden;
+}
+
+.ohm .token.comment,
+.ohm .token.prolog,
+.ohm .token.doctype,
+.ohm .token.cdata {
+	@apply ohm-text-code-comment;
+}
+
+.ohm .token.punctuation {
+	@apply ohm-text-code-punctuation;
+}
+
+.ohm .token.namespace {
+	opacity: 0.7;
+}
+
+.ohm .token.operator,
+.ohm .token.boolean,
+.ohm .token.number {
+	@apply ohm-text-code-number;
+}
+
+.ohm .token.property {
+	@apply ohm-text-code-property;
+}
+
+.ohm .token.tag {
+	@apply ohm-text-code-tag;
+}
+
+.ohm .token.string {
+	@apply ohm-text-code-string;
+}
+
+.ohm .token.selector {
+	@apply ohm-text-code-selector;
+}
+
+.ohm .token.attr-name {
+	@apply ohm-text-code-attr;
+}
+
+.ohm .token.entity,
+.ohm .token.url,
+.ohm .language-css .token.string,
+.ohm .style .token.string {
+	@apply ohm-text-code-entity;
+}
+
+.ohm .token.attr-value,
+.ohm .token.keyword,
+.ohm .token.control,
+.ohm .token.directive,
+.ohm .token.unit {
+	@apply ohm-text-code-keyword;
+}
+
+.ohm .token.function {
+	@apply ohm-text-code-function;
+}
+
+.ohm .token.statement,
+.ohm .token.regex,
+.ohm .token.atrule {
+	@apply ohm-text-code-statement;
+}
+
+.ohm .token.placeholder,
+.ohm .token.variable {
+	@apply ohm-text-code-placeholder;
+}
+
+.ohm .token.deleted {
+	text-decoration: line-through;
+}
+
+.ohm .token.inserted {
+	@apply ohm-border-b ohm-border-dotted ohm-border-code-inserted ohm-no-underline;
+}
+
+.ohm .token.italic {
+	font-style: italic;
+}
+
+.ohm .token.important,
+.ohm .token.bold {
+	font-weight: bold;
+}
+
+.ohm .token.important {
+	@apply ohm-text-code-important;
+}
+
+.ohm .token.entity {
+	cursor: help;
 }

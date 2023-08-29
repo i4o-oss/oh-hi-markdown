@@ -1,9 +1,10 @@
-import refractor from 'refractor/lib/core'
+import { refractor } from 'refractor/lib/core'
 import flattenDeep from 'lodash/flattenDeep'
 import { Plugin, PluginKey, Transaction } from 'prosemirror-state'
 import { Node } from 'prosemirror-model'
 import { Decoration, DecorationSet } from 'prosemirror-view'
 import { findBlockNodes } from 'prosemirror-utils'
+// import { RefractorNode } from 'refractor/core'
 
 export const LANGUAGES = {
 	none: 'None', // additional entry to disable highlighting
@@ -42,7 +43,8 @@ function getDecorations({ doc, name }: { doc: Node; name: string }) {
 	)
 
 	function parseNodes(
-		nodes: refractor.RefractorNode[],
+		// FIXME: fix this type
+		nodes: any[],
 		classNames: string[] = []
 	): any {
 		return nodes.map((node) => {
@@ -73,8 +75,11 @@ function getDecorations({ doc, name }: { doc: Node; name: string }) {
 		}
 
 		if (!cache[block.pos] || !cache[block.pos].node.eq(block.node)) {
-			const nodes = refractor.highlight(block.node.textContent, language)
-			const _decorations = flattenDeep(parseNodes(nodes))
+			const { children } = refractor.highlight(
+				block.node.textContent,
+				language
+			)
+			const _decorations = flattenDeep(parseNodes(children))
 				.map((node: ParsedNode) => {
 					const from = startPos
 					const to = from + node.text.length
@@ -119,6 +124,7 @@ export default function Prism({ name }) {
 	return new Plugin({
 		key: new PluginKey('prism'),
 		state: {
+			// @ts-ignore
 			init: (_: Plugin, { doc }) => {
 				return DecorationSet.create(doc, [])
 			},

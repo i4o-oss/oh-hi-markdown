@@ -31,14 +31,8 @@ sanguis fratrum. Robore **quam**, nos ligno undique: sentit non cornu longo
 gloria [suos](#sub-diverso-supplex). [Spe viam regni](#hoc-novo) senes iuventae
 furorem locoque quantus nunc misit me offensa desiluit vero, corpus!
 
-\`\`\`
-remote_dvd.ascii += mountainIcs.web(file.leaderboardPassive.base_thick_party(
-        logAjax + processor, desktopTrim, speakers), siteLossyNetbios, 90);
-minisite.parse(bus_file - -2 + scareware, barebones);
-filePhpFat(stackInputSystem / lion(firmware, real), drive.expressUml(dslam,
-        269209, 3) + internetCableLink.bsodProgrammingFavicon(codePermalinkOdbc,
-        case_telnet, wave), errorMpegQueue);
-var memorySwappable = dvdBiometrics;
+\`\`\`rust
+let a = 1;
 \`\`\`
 
 Quae conplexibus egentes narrare *intellege ignes mox* Troiana. Quae lympha est
@@ -51,13 +45,8 @@ prior quaerit prosiliunt et metas viso Atalanta.
 Fera cui fere Auguste, vestigia induruit; et leves diriguit, vel! In qui Cupido
 venit, percepto omnis! Aeeta et fugit.
 
-\`\`\`
-tft(cpu_pcb_dot(tft_type, macintoshEditorWizard(62, eupHot),
-        recursive_crm_localhost), 5, linux_end_and + platform_ray_alert);
-executable_outbox_blog = gui_cluster.kvm_browser(
-        shift_printer.cadFiosCursor.offlinePage(plug, modem,
-        softwareManagement));
-im_emulation = card + 3 * multiplatform_memory * cableFirmware / client;
+\`\`\`typescript
+const b: number = 5;
 \`\`\`
 
 Bello sidereum tela, illo haut, infra parvo laeva ipsas. [Priamoque](#timido)
