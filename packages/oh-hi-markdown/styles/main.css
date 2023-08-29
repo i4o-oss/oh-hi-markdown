@@ -36,6 +36,10 @@
 	@apply ohm-relative ohm-outline-none ohm-px-16 -ohm-mx-16;
 }
 
+.ohm .ProseMirror:first-child() {
+	@apply ohm-hidden;
+}
+
 .ohm .ProseMirror > * {
 	@apply ohm-text-foreground ohm-break-words ohm-whitespace-break-spaces ohm-font-sans;
 	-webkit-font-variant-ligatures: none;
@@ -248,7 +252,12 @@
 }
 
 .ohm code {
-	@apply ohm-rounded-md ohm-border ohm-border-code-border ohm-bg-code ohm-p-1 ohm-font-mono ohm-text-[80%];
+	@apply ohm-rounded-md ohm-border ohm-border-code-border ohm-bg-code ohm-px-1.5 ohm-py-1 ohm-font-mono ohm-text-[80%];
+}
+
+.ohm code:before,
+.ohm code:after {
+	@apply ohm-hidden;
 }
 
 .ohm .code-block {
