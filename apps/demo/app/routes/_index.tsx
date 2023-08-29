@@ -19,7 +19,7 @@ export default function Index() {
 	return (
 		<div className='flex w-full justify-center'>
 			<div className='flex w-full max-w-3xl flex-col gap-y-16 py-16'>
-				<h1 className='text-xl'>Welcome to Remix</h1>
+				<h1 className='text-xl text-white'>Welcome to Remix</h1>
 				{/*
                 // @ts-ignore */}
 				<Editor
