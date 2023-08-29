@@ -34,7 +34,7 @@ export default function App() {
 				<Meta />
 				<Links />
 			</head>
-			<body className='h-screen w-screen bg-white dark:bg-[#090909]'>
+			<body className='h-screen w-screen overflow-x-hidden bg-white dark:bg-[#090909]'>
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
