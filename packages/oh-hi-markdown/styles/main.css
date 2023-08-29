@@ -43,26 +43,6 @@
 	font-feature-settings: 'liga' 0; /* the above doesn't seem to work in Edge */
 }
 
-.ohm pre {
-	@apply ohm-block ohm-overflow-x-auto ohm-relative ohm-rounded-md ohm-text-base ohm-text-left ohm-whitespace-pre ohm-m-0 ohm-bg-code ohm-border ohm-border-code-border ohm-text-foreground ohm-py-3 ohm-px-4 ohm-leading-6;
-
-	-webkit-font-smoothing: initial;
-	direction: ltr;
-	word-spacing: normal;
-	word-break: normal;
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-}
-
-.ohm pre code {
-	@apply ohm-text-base ohm-bg-transparent ohm-p-0 ohm-border-none;
-}
-
 .ohm .block-menu-trigger {
 	@apply ohm-opacity-0 ohm-w-6 ohm-h-6 ohm-pointer-events-none ohm-text-foreground-subtle ohm-bg-transparent ohm-absolute ohm-outline-none ohm-border-none ohm-p-0 ohm-mt-[3px] -ohm-ml-8 ohm-inline;
 
@@ -246,3 +226,55 @@
 .ohm li p:first-child {
 	@apply ohm-m-0 ohm-break-words;
 }
+
+.ohm pre {
+	@apply ohm-block ohm-overflow-x-auto ohm-relative ohm-rounded-md ohm-text-base ohm-text-left ohm-whitespace-pre ohm-m-0 ohm-bg-code ohm-border ohm-border-code-border ohm-text-foreground ohm-py-3 ohm-px-4 ohm-leading-6;
+
+	-webkit-font-smoothing: initial;
+	direction: ltr;
+	word-spacing: normal;
+	word-break: normal;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+.ohm pre code {
+	@apply ohm-bg-transparent ohm-p-0 ohm-border-none;
+}
+
+.ohm code {
+	@apply ohm-rounded-md ohm-border ohm-border-code-border ohm-bg-code ohm-p-1 ohm-font-mono ohm-text-[80%];
+}
+
+.ohm .code-block {
+	position: relative;
+}
+
+.ohm .code-block select {
+	@apply ohm-hidden ohm-rounded-md ohm-text-base ohm-absolute ohm-border ohm-p-[2px] ohm-z-[1] ohm-top-1;
+	/* background: ${(props) => props.theme.blockToolbarBackground}; */
+	/* color: ${(props) => props.theme.blockToolbarItem}; */
+}
+
+.ohm .code-block.code-block select {
+	@apply ohm-right-1;
+}
+
+.ohm button {
+	@apply ohm-hidden ohm-py-[2px] ohm-px-1;
+}
+
+.ohm .code-block:hover select {
+	/* @apply ohm-inline; */
+	@apply ohm-hidden;
+}
+
+/* .ohm .code-block select:focus, */
+/* .ohm .code-block select:active { */
+/* 	display: inline; */
+/* } */
