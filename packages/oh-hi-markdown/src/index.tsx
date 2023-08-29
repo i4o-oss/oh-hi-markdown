@@ -760,7 +760,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 		return (
 			<main
 				onKeyDown={onKeyDown}
-				className='ohm-flex ohm-flex-col ohm-items-start ohm-justify-center'
+				className='ohm-w-full ohm-flex ohm-flex-col ohm-items-start ohm-justify-center'
 				dir={dir}
 			>
 				{/*
@@ -771,7 +771,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 				>
 					<>
 						<div
-							className='editor-wrapper ohm-prose'
+							className='ohm-w-full ohm ohm-prose ohm-max-w-none dark:ohm-prose-invert'
 							// dir={dir}
 							// rtl={isRTL}
 							// readOnly={readOnly}

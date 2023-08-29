@@ -1,3 +1,159 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--primary: 0 0% 99%;
+
+	--foreground: 0 0% 12.5%;
+	--foreground-subtle: 0 0% 39.3%;
+
+	--font-sans: 'Inter, sans-serif';
+	--font-serif: 'Merriweather, serif';
+	--font-mono: 'Source Code Pro', monospace;
+
+	--code-bg: 0 0% 97.5%;
+	--code-border: 0 0% 86.8%;
+}
+
+.ohm {
+	@apply ohm-text-base ohm-w-full ohm-bg-transparent ohm-text-foreground ohm-font-sans;
+}
+
+.ohm .ProseMirror {
+	@apply ohm-relative ohm-outline-none ohm-break-words ohm-whitespace-break-spaces ohm-px-16 -ohm-mx-16 ohm-text-foreground;
+	-webkit-font-variant-ligatures: none;
+	font-variant-ligatures: none;
+	font-feature-settings: 'liga' 0; /* the above doesn't seem to work in Edge */
+}
+
+.ohm pre {
+	@apply ohm-block ohm-overflow-x-auto ohm-relative ohm-rounded-md ohm-text-base ohm-text-left ohm-whitespace-pre ohm-m-0 ohm-bg-code ohm-border ohm-border-code-border ohm-text-foreground ohm-py-3 ohm-px-4 ohm-leading-6;
+
+	-webkit-font-smoothing: initial;
+	direction: ltr;
+	word-spacing: normal;
+	word-break: normal;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+.ohm pre code {
+	@apply ohm-text-base ohm-bg-transparent ohm-p-0 ohm-border-none;
+}
+
+.ohm .block-menu-trigger {
+	@apply ohm-opacity-0 ohm-w-6 ohm-h-6 ohm-pointer-events-none ohm-text-foreground-subtle ohm-bg-transparent ohm-absolute ohm-outline-none ohm-border-none ohm-p-0 ohm-mt-px -ohm-ml-6 ohm-inline;
+
+	transition:
+		color 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
+		150ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
+		opacity 150ms transform ease-in-out;
+}
+
+.ohm .block-menu-trigger:hover,
+.ohm .block-menu-trigger:focus {
+	@apply ohm-cursor-pointer ohm-scale-110 ohm-text-foreground-subtle;
+}
+
+.ohm .ProseMirror-focused .block-menu-trigger,
+.ohm .block-menu-trigger:active,
+.ohm .block-menu-trigger:focus {
+	@apply ohm-opacity-100 ohm-pointer-events-auto;
+}
+
+.ohm h1,
+.ohm h2,
+.ohm h3,
+.ohm h4,
+.ohm h5,
+.ohm h6 {
+	@apply ohm-font-semibold ohm-cursor-text ohm-my-2;
+}
+
+.ohm h1:not(.placeholder):before,
+.ohm h2:not(.placeholder):before,
+.ohm h3:not(.placeholder):before,
+.ohm h4:not(.placeholder):before,
+.ohm h5:not(.placeholder):before,
+.ohm h6:not(.placeholder):before {
+	@apply ohm-inline-block ohm-font-mono ohm-text-foreground-subtle ohm-text-base -ohm-ml-6 ohm-w-6 ohm-opacity-0 ohm-leading-[0];
+	transition: opacity 150ms ease-in-out;
+}
+
+.ohm .heading-content:before {
+	content: '​';
+	display: inline;
+}
+
+.ohm .heading-name {
+	@apply ohm-text-foreground;
+}
+
+.ohm .heading-name:hover {
+	@apply ohm-no-underline;
+}
+
+.ohm a:first-child h1,
+.ohm a:first-child h2,
+.ohm a:first-child h3,
+.ohm a:first-child h4,
+.ohm a:first-child h5,
+.ohm a:first-child h6 {
+	@apply ohm-mt-0;
+}
+
+.ohm h1:not(.placeholder):before {
+	content: 'H1';
+}
+.ohm h2:not(.placeholder):before {
+	content: 'H2';
+}
+.ohm h3:not(.placeholder):before {
+	content: 'H3';
+}
+.ohm h4:not(.placeholder):before {
+	content: 'H4';
+}
+.ohm h5:not(.placeholder):before {
+	content: 'H5';
+}
+.ohm h6:not(.placeholder):before {
+	content: 'H6';
+}
+
+.ohm .ProseMirror-focused h1:not(.placeholder):before,
+.ohm .ProseMirror-focused h2:not(.placeholder):before,
+.ohm .ProseMirror-focused h3:not(.placeholder):before,
+.ohm .ProseMirror-focused h4:not(.placeholder):before,
+.ohm .ProseMirror-focused h5:not(.placeholder):before,
+.ohm .ProseMirror-focused h6:not(.placeholder):before {
+	@apply ohm-opacity-100;
+}
+
+.ohm h1:hover .heading-anchor,
+.ohm h2:hover .heading-anchor,
+.ohm h3:hover .heading-anchor,
+.ohm h4:hover .heading-anchor,
+.ohm h5:hover .heading-anchor,
+.ohm h6:hover .heading-anchor {
+	@apply !ohm-opacity-75;
+}
+
+.ohm h1:hover .heading-anchor:hover,
+.ohm h2:hover .heading-anchor:hover,
+.ohm h3:hover .heading-anchor:hover,
+.ohm h4:hover .heading-anchor:hover,
+.ohm h5:hover .heading-anchor:hover,
+.ohm h6:hover .heading-anchor:hover {
+	@apply !ohm-opacity-100;
+}
+
+.ohm p {
+	@apply ohm-my-0;
+}
