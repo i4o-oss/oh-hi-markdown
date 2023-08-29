@@ -36,7 +36,7 @@
 	@apply ohm-relative ohm-outline-none ohm-px-16 -ohm-mx-16;
 }
 
-.ohm .ProseMirror:first-child() {
+.ohm .ProseMirror:first-child {
 	@apply ohm-hidden;
 }
 
@@ -82,13 +82,8 @@
 .ohm h4:not(.placeholder):before,
 .ohm h5:not(.placeholder):before,
 .ohm h6:not(.placeholder):before {
-	@apply ohm-inline-block ohm-font-mono ohm-text-foreground-muted ohm-text-base -ohm-ml-8 ohm-w-6 ohm-opacity-0 ohm-leading-[0];
+	@apply ohm-inline-block ohm-font-mono ohm-text-foreground-muted ohm-text-base -ohm-ml-8 ohm-w-8 ohm-opacity-0 ohm-leading-[0];
 	transition: opacity 150ms ease-in-out;
-}
-
-.ohm .heading-content:before {
-	content: '​';
-	display: inline;
 }
 
 .ohm .heading-name {
