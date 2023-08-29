@@ -32,6 +32,10 @@
 	@apply ohm-w-full ohm-bg-transparent;
 }
 
+.ohm * {
+	@apply ohm-box-border;
+}
+
 .ohm .ProseMirror {
 	@apply ohm-relative ohm-outline-none ohm-px-16 -ohm-mx-16;
 }
@@ -282,3 +286,7 @@
 /* .ohm .code-block select:active { */
 /* 	display: inline; */
 /* } */
+
+.ohm p img.ProseMirror-separator {
+	@apply ohm-hidden;
+}
