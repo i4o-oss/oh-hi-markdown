@@ -1,13 +1,5 @@
-import type { V2_MetaFunction } from '@remix-run/node'
-import Editor from '@i4o/ohm'
+import Editor from '@i4o/oh-hi-markdown'
 import { useRef } from 'react'
-
-export const meta: V2_MetaFunction = () => {
-	return [
-		{ title: 'New Remix App' },
-		{ name: 'description', content: 'Welcome to Remix!' },
-	]
-}
 
 const DUMMY_CONTENT = `
 Lorem markdownum per ulciscitur, nec ei fecundaque statuam in mediis effugit
