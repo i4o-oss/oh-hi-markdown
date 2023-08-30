@@ -98,6 +98,9 @@
 		"tsup": "^7.2.0",
 		"typescript": "5.2.2"
 	},
+    "publishConfig": {
+		"access": "public"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/i4o-oss/oh-hi-markdown.git"
