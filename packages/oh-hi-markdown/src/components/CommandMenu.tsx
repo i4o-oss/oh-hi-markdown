@@ -317,37 +317,6 @@ class CommandMenu<T = MenuItem> extends React.Component<Props<T>, State> {
 		this.props.onClose()
 	}
 
-	get caretPosition(): { top: number; left: number } {
-		const selection = window.document.getSelection()
-		if (!selection || !selection.anchorNode || !selection.focusNode) {
-			return {
-				top: 0,
-				left: 0,
-			}
-		}
-
-		const range = window.document.createRange()
-		range.setStart(selection.anchorNode, selection.anchorOffset)
-		range.setEnd(selection.focusNode, selection.focusOffset)
-
-		// This is a workaround for an edgecase where getBoundingClientRect will
-		// return zero values if the selection is collapsed at the start of a newline
-		// see reference here: https://stackoverflow.com/a/59780954
-		const rects = range.getClientRects()
-		if (rects.length === 0) {
-			// probably buggy newline behavior, explicitly select the node contents
-			if (range.startContainer && range.collapsed) {
-				range.selectNodeContents(range.startContainer)
-			}
-		}
-
-		const rect = range.getBoundingClientRect()
-		return {
-			top: rect.top,
-			left: rect.left,
-		}
-	}
-
 	calculatePosition(props) {
 		const { view } = props
 		const { selection } = view.state
@@ -359,43 +328,67 @@ class CommandMenu<T = MenuItem> extends React.Component<Props<T>, State> {
 			return defaultPosition
 		}
 
-		const domAtPos = view.domAtPos.bind(view)
+		const caretPosition = () => {
+			let fromPos
+			let toPos
+			try {
+				fromPos = view.coordsAtPos(selection.from)
+				toPos = view.coordsAtPos(selection.to, -1)
+			} catch (err) {
+				return {
+					top: 0,
+					bottom: 0,
+					left: 0,
+					right: 0,
+				}
+			}
+
+			// ensure that start < end for the menu to be positioned correctly
+			return {
+				top: Math.min(fromPos.top, toPos.top),
+				bottom: Math.max(fromPos.bottom, toPos.bottom),
+				left: Math.min(fromPos.left, toPos.left),
+				right: Math.max(fromPos.right, toPos.right),
+			}
+		}
 
 		const ref = this.menuRef.current
+		const offsetWidth = ref ? ref.offsetWidth : 0
 		const offsetHeight = ref ? ref.offsetHeight : 0
-		const node = findDomRefAtPos(selection.from, domAtPos)
-		const paragraph: any = { node }
+		const { top, bottom, right, left } = caretPosition()
+		const margin = 12
 
-		if (
-			!props.isActive ||
-			!paragraph.node ||
-			!paragraph.node.getBoundingClientRect ||
-			SSR
-		) {
-			return defaultPosition
+		const offsetParent = ref?.offsetParent
+			? ref.offsetParent.getBoundingClientRect()
+			: ({
+					width: 0,
+					height: 0,
+					top: 0,
+					left: 0,
+			  } as DOMRect)
+
+		let leftPos = Math.min(
+			left - offsetParent.left,
+			window.innerWidth - offsetParent.left - offsetWidth - margin
+		)
+		if (props.rtl) {
+			leftPos = right - offsetWidth
 		}
 
-		const { left } = this.caretPosition
-		const { top, bottom, right } = paragraph.node.getBoundingClientRect()
-		const margin = 24
-
-		let leftPos = left + window.scrollX
-		if (props.rtl && ref) {
-			leftPos = right - ref.scrollWidth
-		}
-
-		if (startPos.top - offsetHeight > margin) {
+		if (top - offsetHeight > margin) {
 			return {
 				left: leftPos,
 				top: undefined,
-				bottom: window.innerHeight - top - window.scrollY,
+				bottom: offsetParent.bottom - top,
+				right: undefined,
 				isAbove: false,
 			}
 		} else {
 			return {
 				left: leftPos,
-				top: bottom + window.scrollY,
+				top: bottom - offsetParent.top,
 				bottom: undefined,
+				right: undefined,
 				isAbove: true,
 			}
 		}
@@ -472,7 +465,7 @@ class CommandMenu<T = MenuItem> extends React.Component<Props<T>, State> {
 					ref={this.menuRef}
 					{...positioning}
 				>
-					<ScrollArea className='ohm-w-[300px] [&>div>div>div]:!ohm-p-2 [&>div>div>div>div]:!ohm-mt-0 [&>div>div>div>div>ol]:!ohm-py-0'>
+					<ScrollArea className='ohm-w-full [&>div>div>div]:!ohm-p-2 [&>div>div>div>div]:!ohm-mt-0 [&>div>div>div>div>ol]:!ohm-py-0'>
 						{insertItem ? (
 							<div className='ohm-m-2'>
 								<input
@@ -580,6 +573,8 @@ export const Wrapper = styled.div<{
 	line-height: 0;
 	pointer-events: none;
 	white-space: nowrap;
+	width: 300px;
+	max-height: 240px;
 	overflow: hidden;
 
 	${({ active, isAbove }) =>
