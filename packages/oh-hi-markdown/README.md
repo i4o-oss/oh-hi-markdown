@@ -1,36 +1,36 @@
-[![npm version](https://badge.fury.io/js/rich-markdown-editor.svg)](https://badge.fury.io/js/rich-markdown-editor) [![CircleCI](https://img.shields.io/circleci/project/github/outline/rich-markdown-editor.svg)](https://circleci.com/gh/outline/rich-markdown-editor) [![Formatted with Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier) [![TypeScript](https://camo.githubusercontent.com/21132e0838961fbecb75077042aa9b15bc0bf6f9/68747470733a2f2f62616467656e2e6e65742f62616467652f4275696c74253230576974682f547970655363726970742f626c7565)](https://www.typescriptlang.org/) [![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/outline)
+[![Formatted with Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier) [![TypeScript](https://camo.githubusercontent.com/21132e0838961fbecb75077042aa9b15bc0bf6f9/68747470733a2f2f62616467656e2e6e65742f62616467652f4275696c74253230576974682f547970655363726970742f626c7565)](https://www.typescriptlang.org/)
 
-# rich-markdown-editor
+# oh-hi-markdown
 
-A React and [Prosemirror](https://prosemirror.net/) based editor that powers [Outline](http://getoutline.com) and can also be used for displaying content in a read-only fashion.
-The editor is WYSIWYG and includes formatting tools whilst retaining the ability to write markdown shortcuts inline and output plain Markdown. See the **[Live demo storybook](https://rich-markdown-editor-demo.onrender.com/)**.
-
-> Important Note: This project is **not attempting to be an all-purpose Markdown editor**. It is built for the [Outline](http://getoutline.com) knowledge base, and whilst others are welcome to fork or use this package in your own products, development decisions are centered around the needs of Outline.
+A React and Prosemirror based editor forked from [rich-markdown-editor](https://github.com/outline/rich-markdown-editor). The editor is WYSIWYG and includes formatting tools whilst retaining the ability to write markdown shortcuts inline and output plain Markdown. This package is being refactored with some more modern tooling and uses Tailwind instead of `styled-components`. This is a work in progress. As of v0.1.0, it's not completely free of `styled-components` but will work without it. I've also removed a few features from the original package to make the writing experience simpler. I may or may not add these features back. That will solely depend on the requirements for my projects [Aurelius](https://aurelius.ink) and [Rescribe](https://github.com/i4o-oss/rescribe).
 
 ## Usage
 
 ### Install
-
 ```bash
-yarn add rich-markdown-editor
+pnpm add @i4o/oh-hi-markdown
 ```
 
 or
 
 ```bash
-npm install rich-markdown-editor
+yarn add @i4o/oh-hi-markdown
 ```
 
-Note that `react`, `react-dom`, and `styled-components` are _required_ peer dependencies.
+or
+
+```bash
+npm install @i4o/oh-hi-markdown
+```
+
+Note that `react` and `react-dom` are _required_ peer dependencies.
 
 ### Import
 
 ```javascript
-import Editor from 'rich-markdown-editor'
-;<Editor defaultValue='Hello world!' />
+import Editor from '@i4o/oh-hi-markdown'
+<Editor defaultValue='Hello world!' />
 ```
-
-Clone this repo and run the Storybook with `yarn start` to see a wide variety of example usage.
 
 ### Props
 
@@ -297,18 +297,16 @@ Place the cursor at the end of the document and focus it.
 Returns an array of objects with the text content of all the headings in the document,
 their level in the hierarchy, and the anchor id. This is useful to construct your own table of contents since the `toc` option was removed in v10.
 
-## Contributing
-
-This project uses [yarn](https://yarnpkg.com) to manage dependencies. You can use npm however it will not respect the yarn lock file and may install slightly different versions.
-
-```
-yarn install
-```
-
-When running in development Storybook is included to example editors with hot reloading. After installing dependencies run `yarn start` to get going.
-
-When developing using `yarn link`, you can use `yarn watch` to continuously rebuild on change into `dist` as you make changes.
 
 ## License
 
 This project is [BSD licensed](/LICENSE).
+
+## Other Stuff
+
+#### What's with the name?
+
+This library is named after the (in)famous line from [The Room](https://en.wikipedia.org/wiki/The_Room)
+
+![oh-hi-markdown](https://github.com/i4o-oss/oh-hi-markdown/assets/4386534/f2767a80-665a-479b-a992-e7ff246cbfe1)
+
