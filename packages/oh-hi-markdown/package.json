@@ -18,13 +18,11 @@
 		"dev": "concurrently \"pnpm run dev:css\" \"pnpm dev:lib\"",
 		"dev:css": "tailwindcss -w -i ./styles/main.css -o ./dist/main.css",
 		"dev:lib": "tsup --watch",
+		"build": "pnpm run build:css && pnpm build:lib",
+		"build:css": "tailwindcss -m -i ./styles/main.css -o ./dist/main.css",
+		"build:lib": "tsup",
 		"test": "jest",
-		"lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet",
-		"start": "start-storybook -p 6006",
-		"build": "tsc",
-		"preversion": "yarn build",
-		"watch": "yarn tsc-watch",
-		"build-storybook": "build-storybook"
+		"lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet"
 	},
 	"dependencies": {
 		"@i4o/catalystui": "1.0.0-alpha.16",
