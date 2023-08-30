@@ -233,6 +233,7 @@ export default class SelectionToolbar extends React.Component<Props> {
 				>
 					{link && range ? (
 						<LinkEditor
+							// @ts-ignore
 							dictionary={dictionary}
 							mark={range.mark}
 							from={range.from}
@@ -246,7 +247,11 @@ export default class SelectionToolbar extends React.Component<Props> {
 							{...rest}
 						/>
 					) : (
-						<ToolbarMenu items={items} {...rest} />
+						<ToolbarMenu
+							// @ts-ignore
+							items={items}
+							{...rest}
+						/>
 					)}
 				</FloatingToolbar>
 			</Portal>

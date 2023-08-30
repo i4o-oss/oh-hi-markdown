@@ -25,6 +25,7 @@ export default function EmojiMenuItem(props: EmojiMenuItemProps) {
 	return (
 		<BlockMenuItem
 			{...props}
+			// @ts-ignore
 			title={<EmojiTitle emoji={props.emoji} title={props.title} />}
 		/>
 	)

@@ -402,6 +402,7 @@ class CommandMenu<T = MenuItem> extends React.Component<Props<T>, State> {
 			commands,
 			filterable = true,
 		} = this.props
+		// @ts-ignore
 		let items: (EmbedDescriptor | MenuItem)[] = this.props.items
 		const embedItems: EmbedDescriptor[] = []
 

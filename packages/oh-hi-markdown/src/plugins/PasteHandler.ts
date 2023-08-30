@@ -152,6 +152,7 @@ export default class PasteHandler extends Extension {
 							const paste = this.editor.pasteParser.parse(
 								normalizePastedMarkdown(text)
 							)
+							// @ts-ignore
 							const slice = paste.slice(0)
 
 							const transaction =

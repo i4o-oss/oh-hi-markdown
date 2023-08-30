@@ -49,6 +49,7 @@ const uploadPlaceholder = new Plugin({
 
 			if (action?.remove) {
 				set = set.remove(
+					// @ts-ignore
 					set.find(null, null, (spec) => spec.id === action.remove.id)
 				)
 			}
@@ -69,6 +70,7 @@ export function findPlaceholder(
 	id: string
 ): [number, number] | null {
 	const decos = uploadPlaceholder.getState(state)
+	// @ts-ignore
 	const found = decos.find(null, null, (spec) => spec.id === id)
 	return found.length ? [found[0].from, found[0].to] : null
 }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { DownloadIcon } from 'outline-icons'
-import { Plugin, TextSelection, NodeSelection } from 'prosemirror-state'
+import { NodeSelection, Plugin, TextSelection } from 'prosemirror-state'
 import { InputRule } from 'prosemirror-inputrules'
 import styled from 'styled-components'
 import ImageZoom from 'react-medium-image-zoom'
@@ -281,6 +281,7 @@ export default class Image extends Node {
 						/>
 					</Button>
 					<ImageZoom
+						// @ts-ignore
 						image={{
 							src,
 							alt,

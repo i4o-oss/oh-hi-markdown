@@ -136,6 +136,7 @@ export default class LinkToolbar extends React.Component<Props> {
 			<FloatingToolbar ref={this.menuRef} active={active} {...rest}>
 				{active && (
 					<LinkEditor
+						// @ts-ignore
 						from={selection.from}
 						to={selection.to}
 						onCreateLink={
