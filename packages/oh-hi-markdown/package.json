@@ -1,7 +1,7 @@
 {
 	"name": "@i4o/oh-hi-markdown",
 	"description": "A rich text editor with Markdown shortcuts",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"license": "BSD-3-Clause",
 	"files": [
 		"dist"
@@ -98,7 +98,7 @@
 		"tsup": "^7.2.0",
 		"typescript": "5.2.2"
 	},
-    "publishConfig": {
+	"publishConfig": {
 		"access": "public"
 	},
 	"repository": {
