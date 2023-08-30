@@ -1,5 +1,6 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
+	browserNodeBuiltinsPolyfill: { modules: { punycode: true } },
 	ignoredRouteFiles: ['**/.*'],
 	// When running locally in development mode, we use the built-in remix
 	// server. This does not understand the vercel lambda module format,
@@ -9,14 +10,14 @@ module.exports = {
 	// appDirectory: "app",
 	// assetsBuildDirectory: "public/build",
 	// publicPath: "/build/",
-	future: {
-		v2_dev: true,
-		v2_errorBoundary: true,
-		v2_headers: true,
-		v2_meta: true,
-		v2_normalizeFormMethod: true,
-		v2_routeConvention: true,
-	},
+	// future: {
+	// 	v2_dev: true,
+	// 	v2_errorBoundary: true,
+	// 	v2_headers: true,
+	// 	v2_meta: true,
+	// 	v2_normalizeFormMethod: true,
+	// 	v2_routeConvention: true,
+	// },
 	postcss: true,
 	serverModuleFormat: 'cjs',
 	serverDependenciesToBundle: [/.*/],

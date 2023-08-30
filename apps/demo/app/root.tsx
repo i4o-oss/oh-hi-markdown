@@ -31,6 +31,7 @@ export default function App() {
 					name='viewport'
 					content='width=device-width,initial-scale=1'
 				/>
+				<title>oh-hi-markdown Demo</title>
 				<Meta />
 				<Links />
 			</head>

@@ -9,8 +9,8 @@
 	},
 	"dependencies": {
 		"@i4o/ohm": "workspace:*",
-		"@remix-run/node": "^1.19.3",
-		"@remix-run/react": "^1.19.3",
+		"@remix-run/node": "2.0.0-pre.1",
+		"@remix-run/react": "2.0.0-pre.1",
 		"@remix-run/vercel": "^1.19.3",
 		"@vercel/node": "^3.0.3",
 		"isbot": "^3.6.13",
@@ -21,8 +21,8 @@
 	"devDependencies": {
 		"@ohm/eslint-config": "workspace:*",
 		"@ohm/tsconfig": "workspace:*",
-		"@remix-run/dev": "^1.19.3",
-		"@remix-run/serve": "^1.19.3",
+		"@remix-run/dev": "2.0.0-pre.1",
+		"@remix-run/serve": "2.0.0-pre.1",
 		"@types/react": "^18.2.21",
 		"@types/react-dom": "^18.2.7",
 		"@types/source-map-support": "^0.5.7",
