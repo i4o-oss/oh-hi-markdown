@@ -5,14 +5,14 @@
 	"scripts": {
 		"build": "remix build",
 		"dev": "remix dev",
+		"start": "remix-serve ./build/index.js",
 		"typecheck": "tsc"
 	},
 	"dependencies": {
 		"@i4o/oh-hi-markdown": "workspace:*",
-		"@remix-run/node": "2.0.0-pre.1",
-		"@remix-run/react": "2.0.0-pre.1",
-		"@remix-run/vercel": "^1.19.3",
-		"@vercel/node": "^3.0.3",
+		"@remix-run/node": "2.0.1",
+		"@remix-run/react": "2.0.1",
+		"@remix-run/serve": "2.0.1",
 		"isbot": "^3.6.13",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
@@ -21,8 +21,7 @@
 	"devDependencies": {
 		"@ohm/eslint-config": "workspace:*",
 		"@ohm/tsconfig": "workspace:*",
-		"@remix-run/dev": "2.0.0-pre.1",
-		"@remix-run/serve": "2.0.0-pre.1",
+		"@remix-run/dev": "2.0.1",
 		"@types/react": "^18.2.21",
 		"@types/react-dom": "^18.2.7",
 		"@types/source-map-support": "^0.5.7",
@@ -33,7 +32,6 @@
 		"typescript": "^5.2.2"
 	},
 	"engines": {
-		"node": ">=14.0.0"
-	},
-	"version": null
+		"node": ">=18.0.0"
+	}
 }
