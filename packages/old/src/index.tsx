@@ -17,7 +17,7 @@ import baseDictionary from './dictionary'
 import { SearchResult } from './components/LinkEditor'
 import { EmbedDescriptor, ToastType } from './types'
 import SelectionToolbar from './components/SelectionToolbar'
-// import BlockMenu from './components/BlockMenu'
+import BlockMenu from './components/BlockMenu'
 import EmojiMenu from './components/EmojiMenu'
 import LinkToolbar from './components/LinkToolbar'
 import Tooltip from './components/Tooltip'
@@ -61,7 +61,7 @@ import TemplatePlaceholder from './marks/Placeholder'
 import Underline from './marks/Underline'
 
 // plugins
-// import BlockMenuTrigger from './plugins/BlockMenuTrigger'
+import BlockMenuTrigger from './plugins/BlockMenuTrigger'
 import EmojiTrigger from './plugins/EmojiTrigger'
 import History from './plugins/History'
 import Keys from './plugins/Keys'
@@ -380,11 +380,11 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 						onSaveAndExit: this.handleSaveAndExit,
 						onCancel: this.props.onCancel,
 					}),
-					// new BlockMenuTrigger({
-					// 	dictionary,
-					// 	onOpen: this.handleOpenBlockMenu,
-					// 	onClose: this.handleCloseBlockMenu,
-					// }),
+					new BlockMenuTrigger({
+						dictionary,
+						onOpen: this.handleOpenBlockMenu,
+						onClose: this.handleCloseBlockMenu,
+					}),
 					new EmojiTrigger({
 						onOpen: (search: string) => {
 							this.setState({
@@ -658,15 +658,15 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 		this.setState({ linkMenuOpen: false })
 	}
 
-	// handleOpenBlockMenu = (search: string) => {
-	// 	this.setState({ blockMenuOpen: true, blockMenuSearch: search })
-	// }
-	//
-	// handleCloseBlockMenu = () => {
-	// 	if (!this.state.blockMenuOpen) return
-	// 	this.setState({ blockMenuOpen: false })
-	// }
-	//
+	handleOpenBlockMenu = (search: string) => {
+		this.setState({ blockMenuOpen: true, blockMenuSearch: search })
+	}
+
+	handleCloseBlockMenu = () => {
+		if (!this.state.blockMenuOpen) return
+		this.setState({ blockMenuOpen: false })
+	}
+
 	handleSelectRow = (index: number, state: EditorState) => {
 		// @ts-ignore
 		this.view.dispatch(selectRow(index)(state.tr))
@@ -813,25 +813,25 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 										this.setState({ emojiMenuOpen: false })
 									}
 								/>
-								{/* <BlockMenu */}
-								{/* 	view={this.view} */}
-								{/* 	commands={this.commands} */}
-								{/* 	dictionary={dictionary} */}
-								{/* 	rtl={isRTL} */}
-								{/* 	isActive={this.state.blockMenuOpen} */}
-								{/* 	search={this.state.blockMenuSearch} */}
-								{/* 	onClose={this.handleCloseBlockMenu} */}
-								{/* 	uploadImage={this.props.uploadImage} */}
-								{/* 	onLinkToolbarOpen={this.handleOpenLinkMenu} */}
-								{/* 	onImageUploadStart={ */}
-								{/* 		this.props.onImageUploadStart */}
-								{/* 	} */}
-								{/* 	onImageUploadStop={ */}
-								{/* 		this.props.onImageUploadStop */}
-								{/* 	} */}
-								{/* 	onShowToast={this.props.onShowToast} */}
-								{/* 	embeds={this.props.embeds} */}
-								{/* /> */}
+								 <BlockMenu
+								 	view={this.view}
+								 	commands={this.commands}
+								 	dictionary={dictionary}
+								 	rtl={isRTL}
+								 	isActive={this.state.blockMenuOpen}
+								 	search={this.state.blockMenuSearch}
+								 	onClose={this.handleCloseBlockMenu}
+								 	uploadImage={this.props.uploadImage}
+								 	onLinkToolbarOpen={this.handleOpenLinkMenu}
+								 	onImageUploadStart={
+								 		this.props.onImageUploadStart
+								 	}
+								 	onImageUploadStop={
+								 		this.props.onImageUploadStop
+								 	}
+								 	onShowToast={this.props.onShowToast}
+								 	embeds={this.props.embeds}
+								 />
 							</>
 						)}
 					</>

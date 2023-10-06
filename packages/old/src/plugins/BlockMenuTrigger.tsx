@@ -7,6 +7,7 @@ import { findParentNode } from 'prosemirror-utils'
 import { PlusIcon } from 'outline-icons'
 import { Decoration, DecorationSet } from 'prosemirror-view'
 import Extension from '../lib/Extension'
+import {createRoot} from "react-dom/client";
 
 const MAX_MATCH = 500
 const OPEN_REGEX = /^\/(\w+)?$/
@@ -46,7 +47,8 @@ export default class BlockMenuTrigger extends Extension {
 		const button = document.createElement('button')
 		button.className = 'block-menu-trigger'
 		button.type = 'button'
-		ReactDOM.render(<PlusIcon color='currentColor' />, button)
+		const root = createRoot(button)
+		root.render(<PlusIcon color='currentColor' />)
 
 		return [
 			new Plugin({

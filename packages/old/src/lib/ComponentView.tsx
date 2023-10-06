@@ -6,6 +6,7 @@ import Extension from '../lib/Extension'
 import Node from '../nodes/Node'
 import { light as lightTheme, dark as darkTheme } from '../styles/theme'
 import Editor from '../'
+import {createRoot} from "react-dom/client";
 
 type Component = (options: {
 	node: Node
@@ -57,11 +58,11 @@ export default class ComponentView {
 			isEditable: this.view.editable,
 			getPos: this.getPos,
 		})
-
-		ReactDOM.render(
+		// @ts-ignore
+		const root = createRoot(this.dom)
+		root.render(
 			// @ts-ignore
-			<ThemeProvider theme={theme}>{children}</ThemeProvider>,
-			this.dom
+			<ThemeProvider theme={theme}>{children}</ThemeProvider>
 		)
 	}
 
