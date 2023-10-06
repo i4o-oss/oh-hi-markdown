@@ -1,5 +1,5 @@
 {
-	"name": "@i4o/oh-hi-markdown",
+	"name": "@i4o/ohm-old",
 	"description": "A rich text editor with Markdown shortcuts",
 	"version": "0.1.1",
 	"license": "BSD-3-Clause",

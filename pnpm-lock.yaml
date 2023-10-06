@@ -30,7 +30,7 @@ importers:
 
   apps/demo:
     dependencies:
-      '@i4o/oh-hi-markdown':
+      '@i4o/ohm-old':
         specifier: workspace:*
         version: link:../../packages/old
       '@remix-run/node':
@@ -85,6 +85,31 @@ importers:
       tailwindcss:
         specifier: ^3.3.3
         version: 3.3.3
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
+
+  packages/editor:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      autoprefixer:
+        specifier: ^10.4.16
+        version: 10.4.16(postcss@8.4.31)
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.31
+      tailwindcss:
+        specifier: ^3.3.3
+        version: 3.3.3
+      tsup:
+        specifier: ^7.2.0
+        version: 7.2.0(postcss@8.4.31)(typescript@5.2.2)
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
