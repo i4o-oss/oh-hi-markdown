@@ -9,6 +9,7 @@
 		"typecheck": "tsc"
 	},
 	"dependencies": {
+		"@i4o/ohm": "workspace:*",
 		"@i4o/ohm-old": "workspace:*",
 		"@remix-run/node": "2.0.1",
 		"@remix-run/react": "2.0.1",

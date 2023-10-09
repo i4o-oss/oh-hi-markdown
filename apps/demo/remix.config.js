@@ -9,5 +9,5 @@ module.exports = {
 	serverModuleFormat: 'cjs',
 	serverDependenciesToBundle: [/.*/],
 	tailwind: true,
-	watchPaths: ['../../packages/oh-hi-markdown/'],
+	watchPaths: ['../../packages/'],
 }
