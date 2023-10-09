@@ -1,3 +1,9 @@
+@import 'prosemirror-view/style/prosemirror.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ProseMirror-menubar {
+	@apply ohm-hidden;
+}
