@@ -30,6 +30,9 @@ importers:
 
   apps/demo:
     dependencies:
+      '@i4o/ohm':
+        specifier: workspace:*
+        version: link:../../packages/editor
       '@i4o/ohm-old':
         specifier: workspace:*
         version: link:../../packages/old
@@ -91,6 +94,24 @@ importers:
 
   packages/editor:
     dependencies:
+      prosemirror-example-setup:
+        specifier: ^1.2.2
+        version: 1.2.2
+      prosemirror-markdown:
+        specifier: ^1.11.2
+        version: 1.11.2
+      prosemirror-model:
+        specifier: ^1.19.3
+        version: 1.19.3
+      prosemirror-schema-list:
+        specifier: ^1.3.0
+        version: 1.3.0
+      prosemirror-state:
+        specifier: ^1.4.3
+        version: 1.4.3
+      prosemirror-view:
+        specifier: 1.32.0
+        version: 1.32.0
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -98,6 +119,12 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@types/react':
+        specifier: ^18.2.23
+        version: 18.2.23
+      '@types/react-dom':
+        specifier: ^18.2.8
+        version: 18.2.8
       autoprefixer:
         specifier: ^10.4.16
         version: 10.4.16(postcss@8.4.31)
@@ -6324,6 +6351,10 @@ packages:
       yaml: 1.10.2
     dev: true
 
+  /crelt@1.0.6:
+    resolution: {integrity: sha512-VQ2MBenTq1fWZUH9DJNGti7kKv6EeAuYr3cLwxUWhIu1baTaXh4Ib5W2CqHVqib4/MqbYGJqiL3Zb8GJZr3l4g==}
+    dev: false
+
   /cross-spawn@5.1.0:
     resolution: {integrity: sha512-pTgQJ5KC0d2hcY8eyL1IzlBPYjTkyH72XRZPnLyKus2mBfNjQs3klqbJU2VILqZryAZUt9JOb3h/mWMy23/f5A==}
     dependencies:
@@ -10541,6 +10572,20 @@ packages:
       prosemirror-view: 1.32.0
     dev: false
 
+  /prosemirror-example-setup@1.2.2:
+    resolution: {integrity: sha512-pHJc656IgYm249RNp0eQaWNmnyWGk6OrzysWfYI4+NwE14HQ7YNYOlRBLErUS6uCAHIYJLNXf0/XCmf1OCtNbQ==}
+    dependencies:
+      prosemirror-commands: 1.5.2
+      prosemirror-dropcursor: 1.8.1
+      prosemirror-gapcursor: 1.3.2
+      prosemirror-history: 1.3.2
+      prosemirror-inputrules: 1.2.1
+      prosemirror-keymap: 1.2.2
+      prosemirror-menu: 1.2.4
+      prosemirror-schema-list: 1.3.0
+      prosemirror-state: 1.4.3
+    dev: false
+
   /prosemirror-gapcursor@1.3.2:
     resolution: {integrity: sha512-wtjswVBd2vaQRrnYZaBCbyDqr232Ed4p2QPtRIUK5FuqHYKGWkEwl08oQM4Tw7DOR0FsasARV5uJFvMZWxdNxQ==}
     dependencies:
@@ -10578,6 +10623,15 @@ packages:
     dependencies:
       markdown-it: 13.0.2
       prosemirror-model: 1.19.3
+    dev: false
+
+  /prosemirror-menu@1.2.4:
+    resolution: {integrity: sha512-S/bXlc0ODQup6aiBbWVsX/eM+xJgCTAfMq/nLqaO5ID/am4wS0tTCIkzwytmao7ypEtjj39i7YbJjAgO20mIqA==}
+    dependencies:
+      crelt: 1.0.6
+      prosemirror-commands: 1.5.2
+      prosemirror-history: 1.3.2
+      prosemirror-state: 1.4.3
     dev: false
 
   /prosemirror-model@1.19.3:
