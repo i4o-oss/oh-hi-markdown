@@ -7,7 +7,7 @@ import {
 	Scripts,
 	ScrollRestoration,
 } from '@remix-run/react'
-import ohmStyles from '@i4o/oh-hi-markdown/main.css'
+import ohmStyles from '@i4o/ohm-old/main.css'
 import styles from '~/main.css'
 
 export const links: LinksFunction = () => [

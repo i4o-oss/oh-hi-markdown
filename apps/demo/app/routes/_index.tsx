@@ -1,4 +1,4 @@
-import Editor from '@i4o/oh-hi-markdown'
+import Editor from '@i4o/ohm-old'
 import { useRef } from 'react'
 
 const DUMMY_CONTENT = `
