@@ -5,7 +5,7 @@ apps/demo/build/
 apps/demo/public/build/
 apps/demo/.cache/
 
-packages/oh-hi-markdown/dist/
+packages/editor/dist/
 packages/old/dist/
 
 public/site.webmanifest
